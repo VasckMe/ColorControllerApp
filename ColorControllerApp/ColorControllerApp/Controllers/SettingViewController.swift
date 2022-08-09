@@ -9,13 +9,33 @@ import UIKit
 
 class SettingViewController: UIViewController {
 
+    @IBOutlet weak var redSlider: UISlider!
+    @IBOutlet weak var greenSlider: UISlider!
+    @IBOutlet weak var customPreview: UIView!
+    @IBOutlet weak var blueSlider: UISlider!
+    @IBOutlet weak var alphaSlider: UISlider!
+    
+    @IBOutlet weak var redTextFieldRGB: UITextField!
+    @IBOutlet weak var greenTextFieldRGB: UITextField!
+    @IBOutlet weak var blueTextFieldRGB: UITextField!
+    @IBOutlet weak var hexColorTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    @IBAction func redSliderAction() {
+    }
+    @IBAction func greenSliderAction() {
+    }
     
-
+    @IBAction func blueSliderAction() {
+    }
+    @IBAction func alphaSliderAction() {
+    }
+    @IBAction func doneButtonAction() {
+    }
+    
     /*
     // MARK: - Navigation
 
