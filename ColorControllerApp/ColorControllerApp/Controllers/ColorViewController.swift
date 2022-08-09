@@ -21,28 +21,41 @@ class ColorViewController: UIViewController {
     }
 
     // MARK: IBActions
+    @IBAction private func changeBCAction() {
+        performSegue(withIdentifier: "GoToSettingVC", sender: nil)
+    }
 
-    @IBAction private func changeBCAction() {}
-
-    /*
-     // MARK: - Navigation
-
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // MARK: - Navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         // Get the new view controller using segue.destination.
-         // Pass the selected object to the new view controller.
-     }
-     */
+        if let settingVC = segue.destination as? SettingViewController,
+           segue.identifier == "GoToSettingVC"
+        {
+            var green: CGFloat = 0
+            var red: CGFloat = 0
+            var blue: CGFloat = 0
+            var alpha: CGFloat = 0
+            view.backgroundColor?.getRed(&red,
+                                 green: &green,
+                                 blue: &blue,
+                                 alpha: &alpha)
+            let model = ColorModel(red: red,
+                                   green: green,
+                                   blue: blue,
+                                   alpha: alpha)
+            settingVC.clrModel = model
+            settingVC.delegate = self
+        }
+    }
 }
 
 // MARK: Extension
 
 extension ColorViewController: SetViewBackground {
     func setViewBackground(colorModel: ColorModel) {
-        let red = CGFloat(colorModel.red)
-        let green = CGFloat(colorModel.green)
-        let blue = CGFloat(colorModel.blue)
-        let alpha = CGFloat(colorModel.alpha)
+        let red = colorModel.red
+        let green = colorModel.green
+        let blue = colorModel.blue
+        let alpha = colorModel.alpha
         let newColor = UIColor(red: red, green: green, blue: blue, alpha: alpha)
         view.backgroundColor = newColor
     }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="odZ-li-7Oa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="h8D-Kx-7ag">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -26,7 +26,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Change background"/>
                                 <connections>
-                                    <action selector="changeBCAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Om-Pq-QdL"/>
+                                    <segue destination="odZ-li-7Oa" kind="show" identifier="GoToSettingVC" id="NG9-jm-pS8"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -45,7 +45,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VTN-oq-aEN">
-                                <rect key="frame" x="50" y="233.5" width="314" height="439"/>
+                                <rect key="frame" x="50" y="255.5" width="314" height="439"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Vie-v5-v6s">
                                         <rect key="frame" x="20" y="20" width="274" height="399"/>
@@ -211,7 +211,7 @@
                                                                     <action selector="alphaSliderAction" destination="odZ-li-7Oa" eventType="valueChanged" id="Bu0-la-boW"/>
                                                                 </connections>
                                                             </slider>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ggQ-1L-spS">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="100" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ggQ-1L-spS">
                                                                 <rect key="frame" x="214" y="0.0" width="60" height="30"/>
                                                                 <color key="backgroundColor" red="0.24161370430000001" green="0.24098109109999999" blue="0.25203126850000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
@@ -245,13 +245,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Color settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5kI-MG-qne">
-                                <rect key="frame" x="104.5" y="149" width="205.5" height="39"/>
+                                <rect key="frame" x="104.5" y="171" width="205.5" height="39"/>
                                 <fontDescription key="fontDescription" name="Kailasa-Bold" family="Kailasa" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cxi-X1-6vu">
-                                <rect key="frame" x="159.5" y="732" width="95" height="50"/>
+                                <rect key="frame" x="159.5" y="754" width="95" height="50"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Done">
                                     <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="30"/>
@@ -280,7 +280,7 @@
                         <outlet property="alphaSlider" destination="yec-nb-R7Q" id="5Sw-ig-Nvk"/>
                         <outlet property="alphaTextField" destination="ggQ-1L-spS" id="qK7-we-P9g"/>
                         <outlet property="blueSlider" destination="f1a-ZP-DAl" id="XG5-2W-8HK"/>
-                        <outlet property="blueTextFieldRGB" destination="ggQ-1L-spS" id="fdy-M0-eeQ"/>
+                        <outlet property="blueTextFieldRGB" destination="XdP-xt-zjS" id="exB-Ib-vvK"/>
                         <outlet property="customPreview" destination="QvA-m3-vfD" id="aPg-QT-u6k"/>
                         <outlet property="greenSlider" destination="Tfq-7F-NB3" id="dHX-R3-7uK"/>
                         <outlet property="greenTextFieldRGB" destination="0Jt-YM-jfV" id="W8M-WH-9c1"/>
