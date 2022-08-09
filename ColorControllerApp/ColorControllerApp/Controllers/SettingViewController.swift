@@ -9,33 +9,48 @@ import UIKit
 
 class SettingViewController: UIViewController {
 
-    @IBOutlet weak var redSlider: UISlider!
-    @IBOutlet weak var greenSlider: UISlider!
-    @IBOutlet weak var customPreview: UIView!
-    @IBOutlet weak var blueSlider: UISlider!
-    @IBOutlet weak var alphaSlider: UISlider!
+    // MARK: IBOutlets
+    @IBOutlet private weak var redSlider: UISlider!
+    @IBOutlet private weak var greenSlider: UISlider!
+    @IBOutlet private weak var customPreview: UIView!
+    @IBOutlet private weak var blueSlider: UISlider!
+    @IBOutlet private weak var alphaSlider: UISlider!
+    @IBOutlet private weak var alphaTextField: UITextField!
     
-    @IBOutlet weak var redTextFieldRGB: UITextField!
-    @IBOutlet weak var greenTextFieldRGB: UITextField!
-    @IBOutlet weak var blueTextFieldRGB: UITextField!
-    @IBOutlet weak var hexColorTextField: UITextField!
+    @IBOutlet private weak var redTextFieldRGB: UITextField!
+    @IBOutlet private weak var greenTextFieldRGB: UITextField!
+    @IBOutlet private weak var blueTextFieldRGB: UITextField!
+    @IBOutlet private weak var hexColorTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    @IBAction func redSliderAction() {
+    // MARK: IBActions
+    @IBAction private func redSliderAction() {
+        
     }
-    @IBAction func greenSliderAction() {
+    @IBAction private func redTextFieldAction() {
+    }
+    @IBAction private func greenSliderAction() {
+    }
+    @IBAction private func greenTextFieldAction() {
     }
     
-    @IBAction func blueSliderAction() {
+    @IBAction private func blueSliderAction() {
     }
-    @IBAction func alphaSliderAction() {
+    @IBAction private func blueTextFieldAction() {
     }
-    @IBAction func doneButtonAction() {
+    @IBAction private func hexColorTextFieldAction() {
+    }
+    @IBAction private func alphaSliderAction() {
+    }
+    @IBAction private func alphaTextFieldAction() {
+    }
+    @IBAction private func doneButtonAction() {
     }
     
+    // MARK: Functions
     /*
     // MARK: - Navigation
 

@@ -78,6 +78,9 @@
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
+                                                                <connections>
+                                                                    <action selector="redTextFieldAction" destination="odZ-li-7Oa" eventType="editingChanged" id="VZc-9p-78a"/>
+                                                                </connections>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
@@ -111,6 +114,9 @@
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
+                                                                <connections>
+                                                                    <action selector="greenTextFieldAction" destination="odZ-li-7Oa" eventType="editingChanged" id="GBS-N9-kF6"/>
+                                                                </connections>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
@@ -138,15 +144,18 @@
                                                                             <action selector="blueSliderAction" destination="odZ-li-7Oa" eventType="valueChanged" id="brw-R3-skP"/>
                                                                         </connections>
                                                                     </slider>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ggQ-1L-spS">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XdP-xt-zjS">
                                                                         <rect key="frame" x="214" y="0.0" width="60" height="30"/>
                                                                         <color key="backgroundColor" red="0.24161370430000001" green="0.24098109109999999" blue="0.25203126850000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="width" constant="60" id="Pxh-J2-HDi"/>
+                                                                            <constraint firstAttribute="width" constant="60" id="WAY-ja-3t1"/>
                                                                         </constraints>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
+                                                                        <connections>
+                                                                            <action selector="blueTextFieldAction" destination="odZ-li-7Oa" eventType="editingChanged" id="vdN-5r-hPZ"/>
+                                                                        </connections>
                                                                     </textField>
                                                                 </subviews>
                                                             </stackView>
@@ -175,6 +184,9 @@
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
+                                                                <connections>
+                                                                    <action selector="hexColorTextFieldAction" destination="odZ-li-7Oa" eventType="editingChanged" id="WPq-aB-50q"/>
+                                                                </connections>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
@@ -189,13 +201,31 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="255" preferredBehavioralStyle="pad" translatesAutoresizingMaskIntoConstraints="NO" id="yec-nb-R7Q">
-                                                        <rect key="frame" x="-2" y="25.5" width="278" height="31"/>
-                                                        <color key="thumbTintColor" systemColor="systemGrayColor"/>
-                                                        <connections>
-                                                            <action selector="alphaSliderAction" destination="odZ-li-7Oa" eventType="valueChanged" id="Bu0-la-boW"/>
-                                                        </connections>
-                                                    </slider>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="LZP-2r-wtr">
+                                                        <rect key="frame" x="0.0" y="25.5" width="274" height="30"/>
+                                                        <subviews>
+                                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minValue="0.0" maxValue="100" preferredBehavioralStyle="pad" translatesAutoresizingMaskIntoConstraints="NO" id="yec-nb-R7Q">
+                                                                <rect key="frame" x="-2" y="0.0" width="213" height="31"/>
+                                                                <color key="thumbTintColor" systemColor="systemGrayColor"/>
+                                                                <connections>
+                                                                    <action selector="alphaSliderAction" destination="odZ-li-7Oa" eventType="valueChanged" id="Bu0-la-boW"/>
+                                                                </connections>
+                                                            </slider>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ggQ-1L-spS">
+                                                                <rect key="frame" x="214" y="0.0" width="60" height="30"/>
+                                                                <color key="backgroundColor" red="0.24161370430000001" green="0.24098109109999999" blue="0.25203126850000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="60" id="Pxh-J2-HDi"/>
+                                                                </constraints>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <connections>
+                                                                    <action selector="alphaTextFieldAction" destination="odZ-li-7Oa" eventType="editingChanged" id="lpw-lj-MzU"/>
+                                                                </connections>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QvA-m3-vfD">
@@ -248,6 +278,7 @@
                     <navigationItem key="navigationItem" id="doq-2P-igc"/>
                     <connections>
                         <outlet property="alphaSlider" destination="yec-nb-R7Q" id="5Sw-ig-Nvk"/>
+                        <outlet property="alphaTextField" destination="ggQ-1L-spS" id="qK7-we-P9g"/>
                         <outlet property="blueSlider" destination="f1a-ZP-DAl" id="XG5-2W-8HK"/>
                         <outlet property="blueTextFieldRGB" destination="ggQ-1L-spS" id="fdy-M0-eeQ"/>
                         <outlet property="customPreview" destination="QvA-m3-vfD" id="aPg-QT-u6k"/>
