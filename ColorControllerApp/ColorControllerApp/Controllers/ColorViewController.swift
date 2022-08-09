@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol SetViewBackground {
+    func setViewBackground(colorModel: ColorModel)
+}
+
 class ColorViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -26,4 +30,15 @@ class ColorViewController: UIViewController {
     }
     */
 
+}
+
+extension ColorViewController: SetViewBackground {
+    func setViewBackground(colorModel: ColorModel) {
+        let red = CGFloat(colorModel.red)
+        let green = CGFloat(colorModel.green)
+        let blue = CGFloat(colorModel.blue)
+        let alpha = CGFloat(colorModel.alpha)
+        let newColor = UIColor(red: red, green: green, blue: blue, alpha: alpha)
+        view.backgroundColor = newColor
+    }
 }
