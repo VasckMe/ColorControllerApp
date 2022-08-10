@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct ColorModel {
+struct ColorModel: Equatable {
     let red: Int
     let green: Int
     let blue: Int

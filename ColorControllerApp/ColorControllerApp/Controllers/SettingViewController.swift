@@ -24,7 +24,10 @@ class SettingViewController: UIViewController {
     @IBOutlet private weak var blueTextFieldRGB: UITextField!
     @IBOutlet private weak var hexColorTextField: UITextField!
     
+    @IBOutlet private weak var doneButtonOutlet: UIButton!
+
     // MARK: Properties
+
     var delegate: SetViewBackground?
     var clrModel: ColorModel?
     
@@ -32,24 +35,28 @@ class SettingViewController: UIViewController {
         didSet {
             ColorController()
             setMinMaxSliderColor()
+            checkModels()
         }
     }
     private var green: Int = 0 {
         didSet {
             ColorController()
             setMinMaxSliderColor()
+            checkModels()
         }
     }
     private var blue: Int = 0 {
         didSet {
             ColorController()
             setMinMaxSliderColor()
+            checkModels()
         }
     }
     private var alpha: Int = 1 {
         didSet {
             ColorController()
             setMinMaxSliderColor()
+            checkModels()
         }
     }
     
@@ -62,6 +69,7 @@ class SettingViewController: UIViewController {
         redTextFieldRGB.text = String(Int(redSlider.value))
         red = Int(redSlider.value)
     }
+
     @IBAction private func redTextFieldAction() {
         if
             let text = redTextFieldRGB.text,
@@ -72,10 +80,12 @@ class SettingViewController: UIViewController {
             red = Int(number)
         }
     }
+
     @IBAction private func greenSliderAction() {
         greenTextFieldRGB.text = String(Int(greenSlider.value))
         green = Int(greenSlider.value)
     }
+
     @IBAction private func greenTextFieldAction() {
         if
             let text = greenTextFieldRGB.text,
@@ -85,10 +95,12 @@ class SettingViewController: UIViewController {
             green = Int(number)
         }
     }
+
     @IBAction private func blueSliderAction() {
         blueTextFieldRGB.text = String(Int(blueSlider.value))
         blue = Int(blueSlider.value)
     }
+
     @IBAction private func blueTextFieldAction() {
         if
             let text = blueTextFieldRGB.text,
@@ -116,13 +128,16 @@ class SettingViewController: UIViewController {
         alphaTextField.text = String(Int(alphaSlider.value))
         alpha = Int(alphaSlider.value)
     }
+
     @IBAction private func alphaTextFieldAction() {
         if let text = alphaTextField.text,
-           let number = Float(text) {
+           let number = Float(text)
+        {
             alphaSlider.value = number
             alpha = Int(number)
         }
     }
+
     @IBAction private func doneButtonAction() {
         let colorModel = ColorModel(red: red, green: green, blue: blue, alpha: alpha)
         
@@ -138,16 +153,13 @@ class SettingViewController: UIViewController {
         let blueCGFloat = CGFloat(Float(blue) / 255)
         let alphaCGFloat = CGFloat(Float(alpha) / 100)
         
-        
         let color = UIColor(red: redCGFloat, green: greenCGFloat, blue: blueCGFloat, alpha: alphaCGFloat)
         let model = ColorModel(red: red, green: green, blue: blue, alpha: alpha)
         hexColorTextField.text = getHexColor(model: model)
         customPreview.backgroundColor = color
-        
     }
     
     private func setMinMaxSliderColor() {
-        
         let redCG = CGFloat(Float(red) / 255)
         let greenCG = CGFloat(Float(green) / 255)
         let blueCG = CGFloat(Float(blue) / 255)
@@ -164,6 +176,12 @@ class SettingViewController: UIViewController {
         blueSlider.minimumTrackTintColor = UIColor(red: redCG, green: greenCG, blue: 0, alpha: alphaCG)
         blueSlider.maximumTrackTintColor = UIColor(red: redCG, green: greenCG, blue: 1, alpha: alphaCG)
         blueSlider.thumbTintColor = UIColor(red: redCG, green: greenCG, blue: blueCG, alpha: alphaCG)
+    }
+    
+    private func checkModels() {
+        let newColorModel = ColorModel(red: red, green: green, blue: blue, alpha: alpha)
+        
+        doneButtonOutlet.isEnabled = clrModel != newColorModel
     }
     
     private func setupColor() {
@@ -205,12 +223,12 @@ extension UIColor {
         let length = hexSanitilized.count
         var rgb: UInt64 = 0
     
-    var r: CGFloat = 0.0
-    var g: CGFloat = 0.0
-    var b: CGFloat = 0.0
-    var a: CGFloat = 1.0
+        var r: CGFloat = 0.0
+        var g: CGFloat = 0.0
+        var b: CGFloat = 0.0
+        var a: CGFloat = 1.0
     
-    guard Scanner(string: hexSanitilized).scanHexInt64(&rgb) else { return nil }
+        guard Scanner(string: hexSanitilized).scanHexInt64(&rgb) else { return nil }
         
         if length == 6 {
             r = CGFloat((rgb & 0xFF0000) >> 16) / 255.0

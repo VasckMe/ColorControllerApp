@@ -250,7 +250,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cxi-X1-6vu">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cxi-X1-6vu">
                                 <rect key="frame" x="159.5" y="754" width="95" height="50"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Done">
@@ -282,6 +282,7 @@
                         <outlet property="blueSlider" destination="f1a-ZP-DAl" id="XG5-2W-8HK"/>
                         <outlet property="blueTextFieldRGB" destination="XdP-xt-zjS" id="exB-Ib-vvK"/>
                         <outlet property="customPreview" destination="QvA-m3-vfD" id="aPg-QT-u6k"/>
+                        <outlet property="doneButtonOutlet" destination="cxi-X1-6vu" id="S0y-Xr-Wc3"/>
                         <outlet property="greenSlider" destination="Tfq-7F-NB3" id="dHX-R3-7uK"/>
                         <outlet property="greenTextFieldRGB" destination="0Jt-YM-jfV" id="W8M-WH-9c1"/>
                         <outlet property="hexColorTextField" destination="hRh-BN-Sf9" id="TGd-gj-6bV"/>
