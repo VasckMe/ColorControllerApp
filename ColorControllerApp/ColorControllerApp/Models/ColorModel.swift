@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 struct ColorModel {
-    let red: CGFloat
-    let green: CGFloat
-    let blue: CGFloat
-    let alpha: CGFloat
+    let red: Int
+    let green: Int
+    let blue: Int
+    let alpha: Int
 }

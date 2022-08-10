@@ -28,25 +28,25 @@ class SettingViewController: UIViewController {
     var delegate: SetViewBackground?
     var clrModel: ColorModel?
     
-    private var red: CGFloat = 0 {
+    private var red: Int = 0 {
         didSet {
             ColorController()
             setMinMaxSliderColor()
         }
     }
-    private var green: CGFloat = 0 {
+    private var green: Int = 0 {
         didSet {
             ColorController()
             setMinMaxSliderColor()
         }
     }
-    private var blue: CGFloat = 0 {
+    private var blue: Int = 0 {
         didSet {
             ColorController()
             setMinMaxSliderColor()
         }
     }
-    private var alpha: CGFloat = 1 {
+    private var alpha: Int = 1 {
         didSet {
             ColorController()
             setMinMaxSliderColor()
@@ -55,57 +55,72 @@ class SettingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupColor()
-        // Do any additional setup after loading the view.
     }
     // MARK: IBActions
     @IBAction private func redSliderAction() {
         redTextFieldRGB.text = String(Int(redSlider.value))
-        red = CGFloat(redSlider.value / 255)
+        red = Int(redSlider.value)
     }
     @IBAction private func redTextFieldAction() {
-        if let text = redTextFieldRGB.text,
-           let number = Float(text) {
+        if
+            let text = redTextFieldRGB.text,
+           
+            let number = Float(text)
+        {
             redSlider.value = number
-            red = CGFloat(number / 255)
+            red = Int(number)
         }
     }
     @IBAction private func greenSliderAction() {
         greenTextFieldRGB.text = String(Int(greenSlider.value))
-        green = CGFloat(greenSlider.value / 255)
+        green = Int(greenSlider.value)
     }
     @IBAction private func greenTextFieldAction() {
-        if let text = greenTextFieldRGB.text,
-           let number = Float(text) {
+        if
+            let text = greenTextFieldRGB.text,
+            let number = Float(text)
+        {
             greenSlider.value = number
-            green = CGFloat(number / 255)
+            green = Int(number)
         }
     }
     @IBAction private func blueSliderAction() {
         blueTextFieldRGB.text = String(Int(blueSlider.value))
-        blue = CGFloat(blueSlider.value / 255)
+        blue = Int(blueSlider.value)
     }
     @IBAction private func blueTextFieldAction() {
-        if let text = blueTextFieldRGB.text,
-           let number = Float(text) {
+        if
+            let text = blueTextFieldRGB.text,
+            let number = Float(text)
+        {
             blueSlider.value = number
-            blue = CGFloat(number / 255)
+            blue = Int(number)
         }
     }
     
     @IBAction private func hexColorTextFieldAction() {
+        if
+            let hex = hexColorTextField.text,
+            let color = UIColor(hex: hex),
+            let model = getModelFromUIColor(uiColor: color)
+        {
+            red = model.red
+            green = model.green
+            blue = model.blue
+            alpha = model.alpha
+        }
     }
     
     @IBAction private func alphaSliderAction() {
         alphaTextField.text = String(Int(alphaSlider.value))
-        alpha = CGFloat(alphaSlider.value / 100)
+        alpha = Int(alphaSlider.value)
     }
     @IBAction private func alphaTextFieldAction() {
         if let text = alphaTextField.text,
            let number = Float(text) {
             alphaSlider.value = number
-            alpha = CGFloat(number / 100)
+            alpha = Int(number)
         }
     }
     @IBAction private func doneButtonAction() {
@@ -118,22 +133,37 @@ class SettingViewController: UIViewController {
     // MARK: Functions
     
     private func ColorController() {
-        let color = UIColor(red: red, green: green, blue: blue, alpha: alpha)
+        let redCGFloat = CGFloat(Float(red) / 255)
+        let greenCGFloat = CGFloat(Float(green) / 255)
+        let blueCGFloat = CGFloat(Float(blue) / 255)
+        let alphaCGFloat = CGFloat(Float(alpha) / 100)
+        
+        
+        let color = UIColor(red: redCGFloat, green: greenCGFloat, blue: blueCGFloat, alpha: alphaCGFloat)
+        let model = ColorModel(red: red, green: green, blue: blue, alpha: alpha)
+        hexColorTextField.text = getHexColor(model: model)
         customPreview.backgroundColor = color
+        
     }
     
     private func setMinMaxSliderColor() {
-        redSlider.minimumTrackTintColor = UIColor(red: 0, green: green, blue: blue, alpha: alpha)
-        redSlider.maximumTrackTintColor = UIColor(red: 1, green: green, blue: blue, alpha: alpha)
-        redSlider.thumbTintColor = UIColor(red: red, green: green, blue: blue, alpha: alpha)
-
-        greenSlider.minimumTrackTintColor = UIColor(red: red, green: 0, blue: blue, alpha: alpha)
-        greenSlider.maximumTrackTintColor = UIColor(red: red, green: 1, blue: blue, alpha: alpha)
-        greenSlider.thumbTintColor = UIColor(red: red, green: green, blue: blue, alpha: alpha)
         
-        blueSlider.minimumTrackTintColor = UIColor(red: red, green: green, blue: 0, alpha: alpha)
-        blueSlider.maximumTrackTintColor = UIColor(red: red, green: green, blue: 1, alpha: alpha)
-        blueSlider.thumbTintColor = UIColor(red: red, green: green, blue: blue, alpha: alpha)
+        let redCG = CGFloat(Float(red) / 255)
+        let greenCG = CGFloat(Float(green) / 255)
+        let blueCG = CGFloat(Float(blue) / 255)
+        let alphaCG = CGFloat(Float(alpha) / 100)
+        
+        redSlider.minimumTrackTintColor = UIColor(red: 0, green: greenCG, blue: blueCG, alpha: alphaCG)
+        redSlider.maximumTrackTintColor = UIColor(red: 1, green: greenCG, blue: blueCG, alpha: alphaCG)
+        redSlider.thumbTintColor = UIColor(red: redCG, green: greenCG, blue: blueCG, alpha: alphaCG)
+
+        greenSlider.minimumTrackTintColor = UIColor(red: redCG, green: 0, blue: blueCG, alpha: alphaCG)
+        greenSlider.maximumTrackTintColor = UIColor(red: redCG, green: 1, blue: blueCG, alpha: alphaCG)
+        greenSlider.thumbTintColor = UIColor(red: redCG, green: greenCG, blue: blueCG, alpha: alphaCG)
+        
+        blueSlider.minimumTrackTintColor = UIColor(red: redCG, green: greenCG, blue: 0, alpha: alphaCG)
+        blueSlider.maximumTrackTintColor = UIColor(red: redCG, green: greenCG, blue: 1, alpha: alphaCG)
+        blueSlider.thumbTintColor = UIColor(red: redCG, green: greenCG, blue: blueCG, alpha: alphaCG)
     }
     
     private func setupColor() {
@@ -142,26 +172,58 @@ class SettingViewController: UIViewController {
             green = colorModel.green
             blue = colorModel.blue
             alpha = colorModel.alpha
+
+            redSlider.value = Float(red)
+            greenSlider.value = Float(green)
+            blueSlider.value = Float(blue)
+            alphaSlider.value = Float(alpha)
             
-            redSlider.value = Float(red*255)
-            greenSlider.value = Float(green*255)
-            blueSlider.value = Float(blue*255)
-            alphaSlider.value = Float(alpha*100)
-            
-            redTextFieldRGB.text = String(Int(red * 255))
-            greenTextFieldRGB.text = String(Int(green * 255))
-            blueTextFieldRGB.text = String(Int(blue * 255))
-            alphaTextField.text = String(Int(alpha * 100))
+            hexColorTextField.text = getHexColor(model: colorModel)
+            redTextFieldRGB.text = String(red)
+            greenTextFieldRGB.text = String(green)
+            blueTextFieldRGB.text = String(blue)
+            alphaTextField.text = String(alpha)
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    private func getHexColor(model: ColorModel) -> String {
+        let red = model.red
+        let green = model.green
+        let blue = model.blue
+        
+        let hexValue = String(format: "%02X", Int(red)) + String(format: "%02X", Int(green)) + String(format: "%02X", Int(blue))
+        return hexValue
     }
-    */
+}
 
+
+extension UIColor {
+    convenience init?(hex: String) {
+        var hexSanitilized = hex.trimmingCharacters(in: .whitespacesAndNewlines)
+        hexSanitilized = hexSanitilized.replacingOccurrences(of: "#", with: "")
+    
+        let length = hexSanitilized.count
+        var rgb: UInt64 = 0
+    
+    var r: CGFloat = 0.0
+    var g: CGFloat = 0.0
+    var b: CGFloat = 0.0
+    var a: CGFloat = 1.0
+    
+    guard Scanner(string: hexSanitilized).scanHexInt64(&rgb) else { return nil }
+        
+        if length == 6 {
+            r = CGFloat((rgb & 0xFF0000) >> 16) / 255.0
+            g = CGFloat((rgb & 0x00FF00) >> 8) / 255.0
+            b = CGFloat(rgb & 0x0000FF) / 255.0
+        } else if length == 8 {
+            r = CGFloat((rgb & 0xFF000000) >> 24) / 255.0
+            g = CGFloat((rgb & 0x00FF0000) >> 16) / 255.0
+            b = CGFloat((rgb & 0x0000FF00) >> 8) / 255.0
+            a = CGFloat(rgb & 0x000000FF) / 255
+        } else {
+            return nil
+        }
+        self.init(red: r, green: g, blue: b, alpha: a)
+    }
 }
