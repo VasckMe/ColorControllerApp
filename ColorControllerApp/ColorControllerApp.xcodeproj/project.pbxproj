@@ -15,6 +15,7 @@
 		183E9F7828A27C1C00299720 /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E9F7728A27C1C00299720 /* ColorViewController.swift */; };
 		183E9F7A28A27C3500299720 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E9F7928A27C3500299720 /* SettingViewController.swift */; };
 		1891BFA328A2A54000C0D1C8 /* ColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1891BFA228A2A54000C0D1C8 /* ColorModel.swift */; };
+		18B2507028A564160057C380 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B2506F28A564160057C380 /* UIViewControllerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		183E9F7728A27C1C00299720 /* ColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
 		183E9F7928A27C3500299720 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		1891BFA228A2A54000C0D1C8 /* ColorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorModel.swift; sourceTree = "<group>"; };
+		18B2506F28A564160057C380 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				1891BFA128A2A52D00C0D1C8 /* Models */,
+				18B2506E28A563E80057C380 /* Extension */,
 				183E9F7E28A27C6400299720 /* Controllers */,
 				183E9F7D28A27C4500299720 /* Views */,
 				183E9F7C28A27C3F00299720 /* App */,
@@ -103,6 +106,14 @@
 				1891BFA228A2A54000C0D1C8 /* ColorModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		18B2506E28A563E80057C380 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				18B2506F28A564160057C380 /* UIViewControllerExtension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,6 +189,7 @@
 			files = (
 				183E9F6428A278F400299720 /* AppDelegate.swift in Sources */,
 				183E9F7828A27C1C00299720 /* ColorViewController.swift in Sources */,
+				18B2507028A564160057C380 /* UIViewControllerExtension.swift in Sources */,
 				183E9F6628A278F400299720 /* SceneDelegate.swift in Sources */,
 				183E9F7A28A27C3500299720 /* SettingViewController.swift in Sources */,
 				1891BFA328A2A54000C0D1C8 /* ColorModel.swift in Sources */,
